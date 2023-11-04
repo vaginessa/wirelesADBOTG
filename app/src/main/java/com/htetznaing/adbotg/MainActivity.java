@@ -434,26 +434,39 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     }
 
     private void putCommand() {
-        if (!edCommand.getText().toString().isEmpty()){
-            // We become the sending thread
+
+        String command = edCommand.getText().toString();
+        if (command.isEmpty()) {
+            Toast.makeText(MainActivity.this, "No command", Toast.LENGTH_SHORT).show();
+            return ;
+        }
+
+        // Add new custom command tcpip,
+        if (command.trim().equals("tcpip")) {
             try {
-                String cmd = edCommand.getText().toString();
-                if (cmd.equalsIgnoreCase("clear")) {
-                    String log = logs.getText().toString();
-                    String[] logSplit = log.split("\n");
-                    logs.setText(logSplit[logSplit.length-1]);
-                }else if (cmd.equalsIgnoreCase("exit")) {
-                    finish();
-                }else {
-                    stream.write((cmd+"\n").getBytes("UTF-8"));
-                }
-                edCommand.setText("");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                stream = adbConnection.open("tcpip:5555");
+                stream.close();
+            } catch (Exception e) { e.printStackTrace(); }
+            return ;
+        }
+
+        // We become the sending thread
+        try {
+            if (command.equalsIgnoreCase("clear")) {
+                String log = logs.getText().toString();
+                String[] logSplit = log.split("\n");
+                logs.setText(logSplit[logSplit.length-1]);
+            }else if (command.equalsIgnoreCase("exit")) {
+                finish();
+            }else {
+                stream.write((command+"\n").getBytes("UTF-8"));
             }
-        }else Toast.makeText(MainActivity.this, "No command", Toast.LENGTH_SHORT).show();
+            edCommand.setText("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void open(View view) {
