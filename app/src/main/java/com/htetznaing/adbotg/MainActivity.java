@@ -97,11 +97,13 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
                     case DEVICE_FOUND:
                         closeWaiting();
                         tvStatus.setText(getString(R.string.adb_device_connected));
-                        usb_icon.setColorFilter(Color.parseColor("#4CAF50"));
-                        checkContainer.setVisibility(View.GONE);
-                        terminalView.setVisibility(View.VISIBLE);
-                        initCommand();
-                        showKeyboard();
+
+                        // We're not going to switch to the shell interface,
+                        //usb_icon.setColorFilter(Color.parseColor("#4CAF50"));
+                        //checkContainer.setVisibility(View.GONE);
+                        //terminalView.setVisibility(View.VISIBLE);
+                        //initCommand();
+                        //showKeyboard();
                         break;
 
                     case CONNECTING:
@@ -206,6 +208,9 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         edCommand.setOnEditorActionListener(this);
         edCommand.setOnKeyListener(this);
 
+        // TCPIP Button,
+        findViewById(R.id.abdWirelessButton).setOnClickListener(view -> performAdbTCPIP());
+
 //        //Guide
 //        LinearLayout guideContainer = findViewById(R.id.guideContainer);
 //        String [] split = getString(R.string.guide_for_dev_option).split("=============================");
@@ -246,7 +251,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId()==R.id.go_to_github){
-            startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://github.com/KhunHtetzNaing/ADB-OTG")));
+            startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://github.com/raslanove/ADB-OTG")));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -365,6 +370,17 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
             e.printStackTrace();
         }
 
+    }
+
+    private void performAdbTCPIP() {
+        try {
+            stream = adbConnection.open("tcpip:5555");
+            stream.close();
+            Toast.makeText(this, "Command sent!", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Failed (is device connected?)", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
     }
 
     private void initCommand(){
@@ -526,4 +542,3 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
         }
     }
 }
-
