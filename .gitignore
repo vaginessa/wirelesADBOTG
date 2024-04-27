@@ -12,5 +12,6 @@
 /.idea/assetWizardSettings.xml
 /build
 /captures
+/releases
 .DS_Store
 
