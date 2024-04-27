@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg.Utils;
+package com.nomone.wireless_adb_otg.Utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

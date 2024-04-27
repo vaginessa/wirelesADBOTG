@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg;
+package com.nomone.wireless_adb_otg;
 
 
 import android.os.Handler;

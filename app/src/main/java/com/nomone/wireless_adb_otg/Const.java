@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg;
+package com.nomone.wireless_adb_otg;
 
 /**
  * Created by xudong on 2/7/14.

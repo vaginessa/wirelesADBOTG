@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg.UI;
+package com.nomone.wireless_adb_otg.UI;
 
 import java.util.ArrayList;
 

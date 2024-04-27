@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg.Adapter;
+package com.nomone.wireless_adb_otg.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.htetznaing.adbotg.Model.SliderItem;
-import com.htetznaing.adbotg.R;
+import com.nomone.wireless_adb_otg.Model.SliderItem;
+import com.nomone.wireless_adb_otg.R;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.ArrayList;

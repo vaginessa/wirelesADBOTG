@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 34
 
     defaultConfig {
-        applicationId "com.htetznaing.adbotg"
+        applicationId "com.nomone.wireless_adb_otg"
+        compileSdk 34
         minSdkVersion 15
         targetSdkVersion 34
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -16,7 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    namespace 'com.htetznaing.adbotg'
+    namespace 'com.nomone.wireless_adb_otg'
 }
 
 dependencies {

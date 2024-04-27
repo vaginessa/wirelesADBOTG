@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg;
+package com.nomone.wireless_adb_otg;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

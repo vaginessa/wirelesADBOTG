@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg;
+package com.nomone.wireless_adb_otg;
 
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -40,9 +40,9 @@ import com.cgutman.adblib.AdbConnection;
 import com.cgutman.adblib.AdbCrypto;
 import com.cgutman.adblib.AdbStream;
 import com.cgutman.adblib.UsbChannel;
-import com.htetznaing.adbotg.Adapter.SliderAdapterExample;
-import com.htetznaing.adbotg.Model.SliderItem;
-import com.htetznaing.adbotg.UI.SpinnerDialog;
+import com.nomone.wireless_adb_otg.Adapter.SliderAdapterExample;
+import com.nomone.wireless_adb_otg.Model.SliderItem;
+import com.nomone.wireless_adb_otg.UI.SpinnerDialog;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -50,11 +50,11 @@ import com.smarteist.autoimageslider.SliderView;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import static com.htetznaing.adbotg.Message.CONNECTING;
-import static com.htetznaing.adbotg.Message.DEVICE_FOUND;
-import static com.htetznaing.adbotg.Message.DEVICE_NOT_FOUND;
-import static com.htetznaing.adbotg.Message.FLASHING;
-import static com.htetznaing.adbotg.Message.INSTALLING_PROGRESS;
+import static com.nomone.wireless_adb_otg.Message.CONNECTING;
+import static com.nomone.wireless_adb_otg.Message.DEVICE_FOUND;
+import static com.nomone.wireless_adb_otg.Message.DEVICE_NOT_FOUND;
+import static com.nomone.wireless_adb_otg.Message.FLASHING;
+import static com.nomone.wireless_adb_otg.Message.INSTALLING_PROGRESS;
 
 public class MainActivity extends AppCompatActivity implements TextView.OnEditorActionListener, View.OnKeyListener {
     private Handler handler;
@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements TextView.OnEditor
                         Log.w(Const.TAG, "setAdbInterface(null,null) failed", e);
                     }
                 }
-            }else if (Message.USB_PERMISSION.equals(action)){
+            } else if (Message.USB_PERMISSION.equals(action)){
                 System.out.println("From receiver!");
                 UsbDevice usbDevice = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
                 handler.sendEmptyMessage(CONNECTING);

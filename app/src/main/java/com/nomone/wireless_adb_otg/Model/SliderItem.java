@@ -1,4 +1,4 @@
-package com.htetznaing.adbotg.Model;
+package com.nomone.wireless_adb_otg.Model;
 public class SliderItem {
 
     private String description;
